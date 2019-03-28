@@ -30,10 +30,12 @@ import util.UnZipUtil;
 @WebServlet("/upload.do")
 public class SwitchServlet extends HttpServlet {
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 拿到全局对象
@@ -101,7 +103,7 @@ public class SwitchServlet extends HttpServlet {
 					String downName = fileName.substring(0, fileName.indexOf(".")) + "测试用例.xls";
 					// 设置响应头，控制浏览器下载该文件
 					response.setHeader("content-disposition",
-							"attachment;filename=" + new String(downName.getBytes("UTF-8"), "ISO8859-1"));
+							"attachment;filename=" + new String(downName.getBytes("UTF-8"), "iso8859-1"));
 					// 读取要下载的文件，保存到文件输入流
 					FileInputStream fileInputStream = new FileInputStream(xmindFolderPath + "\\" + downName);
 					// 创建输出流
